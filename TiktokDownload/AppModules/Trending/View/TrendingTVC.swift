@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Kingfisher
 
 class TrendingTVC: UITableViewCell {
     
@@ -34,7 +35,7 @@ class TrendingTVC: UITableViewCell {
     
     private lazy var thumbnailImageView: UIImageView = {
         let imageView = UIImageView(image: Asset.Assets.icTrendingDemo.image)
-        
+        imageView.rounded(width: 1, color: .white, radius: 26)
         return imageView
     }()
     
@@ -102,5 +103,11 @@ class TrendingTVC: UITableViewCell {
             make.left.equalTo(thumbnailImageView.snp.right).offset(11)
             make.centerY.equalToSuperview().offset(8)
         }
+    }
+    
+    func updateContent(with item: TikTokTrendCodable) {
+        oderLabel.text = "\(item.rank)"
+        thumbnailImageView.kf.setImage(with: URL(string: item.thumbnail))
+        titleLabel.text = item.title
     }
 }

@@ -33,6 +33,7 @@
 		2181FBD7290C09EA00B0F682 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181FBD6290C09EA00B0F682 /* Configs.swift */; };
 		2181FBDA290C0A1C00B0F682 /* TikTokTrendCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181FBD9290C0A1C00B0F682 /* TikTokTrendCodable.swift */; };
 		2181FBDC290C0DFD00B0F682 /* UIViewController+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181FBDB290C0DFD00B0F682 /* UIViewController+Exts.swift */; };
+		21990A2A290C299A000293E0 /* Trendings.json in Resources */ = {isa = PBXBuildFile; fileRef = 21990A29290C299A000293E0 /* Trendings.json */; };
 		21D29368290BBD04000BCC94 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D29367290BBD04000BCC94 /* Colors.xcassets */; };
 		21D2936B290BBD26000BCC94 /* Accessor.assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D29369290BBD26000BCC94 /* Accessor.assets.swift */; };
 		21D2936C290BBD26000BCC94 /* Accessor.fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2936A290BBD26000BCC94 /* Accessor.fonts.swift */; };
@@ -78,6 +79,7 @@
 		2181FBD6290C09EA00B0F682 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		2181FBD9290C0A1C00B0F682 /* TikTokTrendCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokTrendCodable.swift; sourceTree = "<group>"; };
 		2181FBDB290C0DFD00B0F682 /* UIViewController+Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Exts.swift"; sourceTree = "<group>"; };
+		21990A29290C299A000293E0 /* Trendings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Trendings.json; sourceTree = "<group>"; };
 		21D29367290BBD04000BCC94 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		21D29369290BBD26000BCC94 /* Accessor.assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessor.assets.swift; sourceTree = "<group>"; };
 		21D2936A290BBD26000BCC94 /* Accessor.fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessor.fonts.swift; sourceTree = "<group>"; };
@@ -276,6 +278,14 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		21990A27290C2971000293E0 /* Jons */ = {
+			isa = PBXGroup;
+			children = (
+				21990A29290C299A000293E0 /* Trendings.json */,
+			);
+			path = Jons;
+			sourceTree = "<group>";
+		};
 		21D29363290BBAD3000BCC94 /* AppModules */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +300,7 @@
 		21D29364290BBAE0000BCC94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21990A27290C2971000293E0 /* Jons */,
 				2101605B290B926900A8EACF /* Assets.xcassets */,
 				21D29366290BBB92000BCC94 /* Fonts */,
 				21D29367290BBD04000BCC94 /* Colors.xcassets */,
@@ -454,6 +465,7 @@
 			files = (
 				2101605F290B926900A8EACF /* LaunchScreen.storyboard in Resources */,
 				21D29386290BBE03000BCC94 /* Montserrat-Regular.ttf in Resources */,
+				21990A2A290C299A000293E0 /* Trendings.json in Resources */,
 				2181FBCD290BEAED00B0F682 /* arial.ttf in Resources */,
 				21D29368290BBD04000BCC94 /* Colors.xcassets in Resources */,
 				21D29382290BBE03000BCC94 /* Montserrat-Medium.ttf in Resources */,

@@ -131,14 +131,18 @@ extension TrendingViewController: UITableViewDelegate {
 
 extension TrendingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return presenter?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingTVC", for: indexPath) as? TrendingTVC else {
+        
+        guard let item = presenter?.getItem(at: indexPath),
+              let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingTVC", for: indexPath) as? TrendingTVC else {
             return UITableViewCell()
         }
         
+        
+        cell.updateContent(with: item)
         return cell
     }
 }

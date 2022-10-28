@@ -8,6 +8,7 @@
 import Foundation
 
 struct TikTokTrendCodable: Codable {
+    let rank: Int
     let thumbnail: String
     let videoID: String
     let title: String

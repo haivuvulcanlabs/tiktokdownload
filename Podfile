@@ -8,6 +8,7 @@ target 'TiktokDownload' do
   pod 'Alamofire', '~> 5.6'
   pod 'RxSwift', '~> 6.5'
   pod 'SVProgressHUD', '~> 2.2'
+  pod 'Kingfisher'
 
   # Pods for TiktokDownload
 

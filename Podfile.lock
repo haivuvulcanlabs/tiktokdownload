@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (5.6.2)
+  - Kingfisher (7.4.1)
   - RxSwift (6.5.0)
   - SnapKit (5.6.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Alamofire (~> 5.6)
+  - Kingfisher
   - RxSwift (~> 6.5)
   - SnapKit (~> 5.6)
   - SVProgressHUD (~> 2.2)
@@ -13,16 +15,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
     - RxSwift
     - SnapKit
     - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 42759eeeec91d7247e6383b405c3163eba9d6b5a
+PODFILE CHECKSUM: fce7e92054a70b8eaf5de4ca6aa6a72ca4afebee
 
 COCOAPODS: 1.11.3
