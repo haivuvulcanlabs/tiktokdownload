@@ -12,6 +12,8 @@ struct TikTokTrendCodable: Codable {
     let thumbnail: String
     let videoID: String
     let title: String
-    let viewCount: Int
-    let videoCount: Int
+    let viewCount: String
+    let videoCount: String
+    let audioURL: String
+  
 }

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 import Kingfisher
+import Lottie
 
 class TrendingTVC: UITableViewCell {
     
@@ -32,6 +33,13 @@ class TrendingTVC: UITableViewCell {
         return subView
     }()
     
+    private lazy var animView: LottieAnimationView = {
+        let animView = LottieAnimationView()
+        animView.animation = LottieAnimation.named("music-equalizer")
+        animView.contentMode = .scaleAspectFit
+        animView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        return animView
+    }()
     
     private lazy var thumbnailImageView: UIImageView = {
         let imageView = UIImageView(image: Asset.Assets.icTrendingDemo.image)
@@ -85,6 +93,7 @@ class TrendingTVC: UITableViewCell {
         }
         
         holderView.addSubview(thumbnailImageView)
+        holderView.addSubview(animView)
         holderView.addSubview(titleLabel)
         holderView.addSubview(subTitleLabel)
 
@@ -92,6 +101,12 @@ class TrendingTVC: UITableViewCell {
             make.centerY.equalToSuperview()
             make.width.height.equalTo(52)
             make.left.equalToSuperview().offset(5)
+        }
+        
+        animView.snp.makeConstraints { make in
+            make.centerX.equalTo(thumbnailImageView.snp.centerX)
+            make.centerY.equalTo(thumbnailImageView.snp.centerY)
+            make.width.height.equalTo(25)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -105,9 +120,16 @@ class TrendingTVC: UITableViewCell {
         }
     }
     
-    func updateContent(with item: TikTokTrendCodable) {
+    func updateContent(with item: TikTokTrendCodable, selected: Bool, playing: Bool) {
         oderLabel.text = "\(item.rank)"
         thumbnailImageView.kf.setImage(with: URL(string: item.thumbnail))
         titleLabel.text = item.title
+        subTitleLabel.text = "—  ·  \(item.viewCount) views  ·  \(item.viewCount) popular videos"
+        animView.isHidden = !selected
+        if playing {
+            animView.play(fromProgress: 0, toProgress: 1, loopMode: .loop)
+        } else {
+            animView.stop()
+        }
     }
 }

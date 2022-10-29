@@ -12,6 +12,9 @@
 		2101605A290B926800A8EACF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21016058290B926800A8EACF /* Main.storyboard */; };
 		2101605C290B926900A8EACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2101605B290B926900A8EACF /* Assets.xcassets */; };
 		2101605F290B926900A8EACF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2101605D290B926900A8EACF /* LaunchScreen.storyboard */; };
+		2134A581290CBD3D008C6843 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134A580290CBD3D008C6843 /* AudioPlayer.swift */; };
+		2134A583290CC8BB008C6843 /* music-equalizer.json in Resources */ = {isa = PBXBuildFile; fileRef = 2134A582290CC8BB008C6843 /* music-equalizer.json */; };
+		2134A585290CCF6B008C6843 /* LinkExtracktor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2134A584290CCF6B008C6843 /* LinkExtracktor.swift */; };
 		2181FBA4290BD0BD00B0F682 /* UIView+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181FBA3290BD0BD00B0F682 /* UIView+Exts.swift */; };
 		2181FBBB290BD4D300B0F682 /* TrendingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181FBA7290BD4D300B0F682 /* TrendingPresenter.swift */; };
 		2181FBBC290BD4D300B0F682 /* TrendingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2181FBA9290BD4D300B0F682 /* TrendingProtocol.swift */; };
@@ -58,6 +61,9 @@
 		2101605B290B926900A8EACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2101605E290B926900A8EACF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21016060290B926900A8EACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2134A580290CBD3D008C6843 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		2134A582290CC8BB008C6843 /* music-equalizer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "music-equalizer.json"; sourceTree = "<group>"; };
+		2134A584290CCF6B008C6843 /* LinkExtracktor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkExtracktor.swift; sourceTree = "<group>"; };
 		2181FBA3290BD0BD00B0F682 /* UIView+Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Exts.swift"; sourceTree = "<group>"; };
 		2181FBA7290BD4D300B0F682 /* TrendingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingPresenter.swift; sourceTree = "<group>"; };
 		2181FBA9290BD4D300B0F682 /* TrendingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingProtocol.swift; sourceTree = "<group>"; };
@@ -281,6 +287,7 @@
 		21990A27290C2971000293E0 /* Jons */ = {
 			isa = PBXGroup;
 			children = (
+				2134A582290CC8BB008C6843 /* music-equalizer.json */,
 				21990A29290C299A000293E0 /* Trendings.json */,
 			);
 			path = Jons;
@@ -390,6 +397,8 @@
 				2181FBD0290BFE3000B0F682 /* URL+Exts.swift */,
 				2181FBD4290C045B00B0F682 /* KeyboardObserver.swift */,
 				2181FBDB290C0DFD00B0F682 /* UIViewController+Exts.swift */,
+				2134A580290CBD3D008C6843 /* AudioPlayer.swift */,
+				2134A584290CCF6B008C6843 /* LinkExtracktor.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -472,6 +481,7 @@
 				2101605C290B926900A8EACF /* Assets.xcassets in Resources */,
 				2101605A290B926800A8EACF /* Main.storyboard in Resources */,
 				21D29380290BBE03000BCC94 /* Montserrat-SemiBold.ttf in Resources */,
+				2134A583290CC8BB008C6843 /* music-equalizer.json in Resources */,
 				21D29390290BBE03000BCC94 /* Montserrat-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,6 +539,7 @@
 				21D2939C290BBEE4000BCC94 /* HomePresenter.swift in Sources */,
 				2181FBDC290C0DFD00B0F682 /* UIViewController+Exts.swift in Sources */,
 				2181FBC9290BDC0B00B0F682 /* SettingTVC.swift in Sources */,
+				2134A585290CCF6B008C6843 /* LinkExtracktor.swift in Sources */,
 				2181FBDA290C0A1C00B0F682 /* TikTokTrendCodable.swift in Sources */,
 				2181FBA4290BD0BD00B0F682 /* UIView+Exts.swift in Sources */,
 				2181FBC2290BD4D300B0F682 /* SettingViewController.swift in Sources */,
@@ -547,6 +558,7 @@
 				21D293A3290BC28A000BCC94 /* BaseHeaderView.swift in Sources */,
 				2181FBC1290BD4D300B0F682 /* SettingProtocol.swift in Sources */,
 				21D2936C290BBD26000BCC94 /* Accessor.fonts.swift in Sources */,
+				2134A581290CBD3D008C6843 /* AudioPlayer.swift in Sources */,
 				2181FBD5290C045B00B0F682 /* KeyboardObserver.swift in Sources */,
 				2181FBC0290BD4D300B0F682 /* SettingPresenter.swift in Sources */,
 				21D2936B290BBD26000BCC94 /* Accessor.assets.swift in Sources */,

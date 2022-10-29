@@ -1,32 +1,40 @@
 PODS:
   - Alamofire (5.6.2)
   - Kingfisher (7.4.1)
+  - lottie-ios (3.5.0)
   - RxSwift (6.5.0)
   - SnapKit (5.6.0)
   - SVProgressHUD (2.2.5)
+  - SwiftSoup (2.4.3)
 
 DEPENDENCIES:
   - Alamofire (~> 5.6)
   - Kingfisher
+  - lottie-ios (~> 3.5)
   - RxSwift (~> 6.5)
   - SnapKit (~> 5.6)
   - SVProgressHUD (~> 2.2)
+  - SwiftSoup
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - lottie-ios
     - RxSwift
     - SnapKit
     - SVProgressHUD
+    - SwiftSoup
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
+  lottie-ios: c55158d67d0629a260625cc2ded2052b829e3c3e
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftSoup: 3384f2e618cfc1b3cbc7852c16692fe8de13fb8f
 
-PODFILE CHECKSUM: fce7e92054a70b8eaf5de4ca6aa6a72ca4afebee
+PODFILE CHECKSUM: 3c3eba5b6a2fb2c4910fe6356f28b426cc2fb872
 
 COCOAPODS: 1.11.3

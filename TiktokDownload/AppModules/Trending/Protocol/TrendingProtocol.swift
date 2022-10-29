@@ -22,6 +22,7 @@ protocol TrendingPresentable: AnyObject {
     func onTappedBack()
     
     func getItem(at index: IndexPath) -> TikTokTrendCodable?
+    func onSelectRow(at indexPath: IndexPath)
 }
 
 protocol TrendingInteractable: AnyObject {

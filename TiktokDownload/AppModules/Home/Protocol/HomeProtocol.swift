@@ -10,6 +10,7 @@ import Foundation
 protocol HomeViewable: AnyObject {
     func showLoadingView()
     func hideLoadingView()
+    func showSuccessView(message: String?)
 }
 
 protocol HomePresentable: AnyObject {

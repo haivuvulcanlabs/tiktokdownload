@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, KeyboardObservable{
         textField.leftViewMode = .always
         
         textField.textColor = .white
-        textField.text = "https://www.tiktok.com/@datdo0803/video/7133088708068166938?is_copy_url=1&is_from_webapp=v1"
+        textField.text = "https://vt.tiktok.com/ZSRnuBWGj/"
         return textField
     }()
     
@@ -200,14 +200,9 @@ private extension HomeViewController {
     }
     
     @objc func tappedDownloadButton(_ sender: UIButton) {
-        guard let inputLink = linkTextField.text, !inputLink.isEmpty, let url = URL(string: inputLink) else { return }
-        
-        
-        if let videoID = url.path.components(separatedBy: "/").last{
-            let videoUrl = "https://www.tikwm.com//video/media/play/\(videoID).mp4"
-            debugPrint("url \(videoUrl)")
-            presenter?.onDownload(url: videoUrl)
-        }
+        guard let inputLink = linkTextField.text, !inputLink.isEmpty else { return }
+     
+        presenter?.onDownload(url: inputLink)
     }
     
     @objc func gestureHandler(_ gesture: UITapGestureRecognizer) {
@@ -223,5 +218,9 @@ extension HomeViewController: HomeViewable {
     }
     func hideLoadingView() {
         SVProgressHUD.dismiss()
+    }
+    
+    func showSuccessView(message: String?) {
+        SVProgressHUD.showSuccess(withStatus: message)
     }
 }

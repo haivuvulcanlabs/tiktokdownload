@@ -9,6 +9,8 @@ target 'TiktokDownload' do
   pod 'RxSwift', '~> 6.5'
   pod 'SVProgressHUD', '~> 2.2'
   pod 'Kingfisher'
+  pod 'lottie-ios', '~> 3.5'
+  pod 'SwiftSoup'
 
   # Pods for TiktokDownload
 

@@ -30,9 +30,12 @@ class HomePresenter {
         let folder = try! FileManager.default
             .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             .appendingPathComponent("videos")
+        //        convertibleUrl.components(separatedBy: "/").last ??
+        var videoName = "\(UUID().uuidString).mp4"
         
-        let videoName = convertibleUrl.components(separatedBy: "/").last ?? "\(UUID().uuidString).mp4"
-        
+        if !videoName.contains("mp4") {
+            videoName = videoName + ".mp4"
+        }
         let destination: DownloadRequest.Destination = { _, _ in
             let fileURL = folder.appendingPathComponent(videoName)
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
@@ -58,9 +61,25 @@ class HomePresenter {
     func saveToCameraRoll(url: URL) {
         PHPhotoLibrary.shared().performChanges({
             PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
-        }) { saved, error in
+        }) { [weak self]saved, error in
             if saved {
-               "Your video was successfully saved"
+                self?.view?.showSuccessView(message: "Your video was successfully saved")
+            } else {
+                self?.view?.showSuccessView(message: "Your video was failed \(error?.localizedDescription)")
+
+            }
+        }
+    }
+    
+    func startDownLoadVideo(url: String) {
+        view?.showLoadingView()
+        addDownload(convertibleUrl: url) {[weak self] finished, url in
+            self?.view?.hideLoadingView()
+            
+            if finished, let url = url {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self?.saveToCameraRoll(url: url)
+                }
             }
         }
     }
@@ -89,14 +108,32 @@ extension HomePresenter: HomePresentable {
     }
     
     func onDownload(url: String) {
-        view?.showLoadingView()
-        addDownload(convertibleUrl: url) {[weak self] finished, url in
-            self?.view?.hideLoadingView()
+        guard let videoURL = URL(string: url) else { return }
+        if url.contains("video") {
+            if let videoID = videoURL.path.components(separatedBy: "/").last{
+                let videoUrl = "https://www.tikwm.com//video/media/play/\(videoID).mp4"
+                debugPrint("url \(videoUrl)")
+                startDownLoadVideo(url: videoUrl)
+            }
             
-            if finished, let url = url {
-                self?.saveToCameraRoll(url: url)
+        } else {
+            view?.showLoadingView()
+            LinkExtracktor.shared.loadWeb(from: videoURL)
+            LinkExtracktor.shared.extractHandler = {[weak self] href in
+                guard let `self` = self else { return }
+                
+                if let href = href, let newURL = URL(string: href) {
+                    if let videoID = newURL.path.components(separatedBy: "/").last{
+                        let videoUrl = "https://www.tikwm.com//video/media/play/\(videoID).mp4"
+                        debugPrint("url \(videoUrl)")
+                        self.startDownLoadVideo(url: videoUrl)
+                    }
+                } else {
+                    self.view?.hideLoadingView()
+                }
+                
             }
         }
+        
     }
-    
 }

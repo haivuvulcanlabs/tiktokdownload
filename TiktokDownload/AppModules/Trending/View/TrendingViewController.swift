@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 import SnapKit
+import AVFoundation
+import MediaPlayer
+import AVKit
 
 class TrendingViewController: UIViewController {
     private lazy var backgroundImageView: UIImageView = {
@@ -64,6 +67,9 @@ class TrendingViewController: UIViewController {
         super.viewDidLoad()
         presenter?.onViewDidLoad()
         setupUIs()
+        AudioPlayer.share.playbackUpdateHandler = {[weak self] in
+            self?.reloadTableView()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +77,7 @@ class TrendingViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         presenter?.onViewAppear()
     }
+    
 }
 
 private extension TrendingViewController {
@@ -108,6 +115,7 @@ private extension TrendingViewController {
             make.top.equalTo(subtitleLabel.snp.bottom).offset(20)
         }
     }
+    
 }
 
 private extension TrendingViewController {
@@ -126,6 +134,10 @@ extension TrendingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 71
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.onSelectRow(at: indexPath)
+    }
 }
 
 
@@ -141,12 +153,17 @@ extension TrendingViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        
-        cell.updateContent(with: item)
+        let selected = item.audioURL == AudioPlayer.share.curentURL?.absoluteString
+        let isPlaying = AudioPlayer.share.player?.rate != 0
+        cell.updateContent(with: item, selected: selected, playing: isPlaying)
         return cell
     }
 }
 
 extension TrendingViewController: TrendingViewable {
-    
+    func reloadTableView() {
+        DispatchQueue.main.async {[weak self] in
+            self?.tableView.reloadData()
+        }
+    }
 }

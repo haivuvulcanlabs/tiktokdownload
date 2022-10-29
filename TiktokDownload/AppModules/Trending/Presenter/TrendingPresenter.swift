@@ -8,7 +8,7 @@
 import Foundation
 
 class TrendingPresenter {
-    var view: TrendingViewable?
+    weak var view: TrendingViewable?
     
     var router: TrendingRoutable?
     
@@ -43,5 +43,11 @@ extension TrendingPresenter: TrendingPresentable {
     func getItem(at index: IndexPath) -> TikTokTrendCodable? {
         guard index.row < items.count else { return nil }
         return items[index.row]
+    }
+    
+    func onSelectRow(at indexPath: IndexPath) {
+        guard let item = getItem(at: indexPath) else { return }
+        
+        AudioPlayer.share.playAudio(path: item.audioURL)
     }
 }
