@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, KeyboardObservable{
         textField.leftViewMode = .always
         
         textField.textColor = .white
-        textField.text = "https://vt.tiktok.com/ZSRnuBWGj/"
+//        textField.text = "https://vt.tiktok.com/ZSRnuBWGj/"
         return textField
     }()
     
