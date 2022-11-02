@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 import Photos
+typealias TypeClosure<T> = (T) -> Void
+typealias PhotoAuthStatus = (isAllowed: Bool, isLimited: Bool)
 
 class HomePresenter {
     var view: HomeViewable?
@@ -66,7 +68,7 @@ class HomePresenter {
                 self?.view?.showSuccessView(message: "Your video was successfully saved")
             } else {
                 self?.view?.showSuccessView(message: "Your video was failed \(error?.localizedDescription)")
-
+                
             }
         }
     }
@@ -81,6 +83,102 @@ class HomePresenter {
                     self?.saveToCameraRoll(url: url)
                 }
             }
+        }
+    }
+    
+    func checkPhotosAccess() -> PHAuthorizationStatus{
+        
+        let status: PHAuthorizationStatus
+        
+        if #available(iOS 14.0, *) {
+            status = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+        } else {
+            status = PHPhotoLibrary.authorizationStatus()
+        }
+        //
+        //            switch status {
+        //            case .authorized:
+        //
+        //                completion((isAllowed: true, isLimited: false))
+        //                return true
+        //            case .limited:
+        //
+        //                if #available(iOS 14.0, *) {
+        //
+        //                    completion((isAllowed: true, isLimited: true))
+        //
+        //                } else {
+        //
+        //                    completion((isAllowed: true, isLimited: true))
+        //                }
+        //
+        //                 completion((isAllowed: true, isLimited: true))
+        //
+        //                return true
+        //            case .denied, .restricted:
+        //
+        ////                delegate?.didFailToGetPermission(Localizable.accessErrorPhotos())
+        //                completion((isAllowed: false, isLimited: false))
+        //                return false
+        //            case .notDetermined:
+        //
+        //                requestPhotoLibraryAuthorization(completion: completion)
+        //                return false
+        //            @unknown default:
+        //                break
+        //            }
+        
+        return status
+    }
+    
+    func requestPhotoLibraryAuthorization(completion: @escaping TypeClosure<PhotoAuthStatus>) {
+        
+        if #available(iOS 14.0, *) {
+            
+            PHPhotoLibrary.requestAuthorization(for: .readWrite) { [weak self] status in
+                
+                self?.handlePhotoLibraryAuthorizationStatus(status: status, completion: completion)
+                
+            }
+            
+        } else {
+            
+            PHPhotoLibrary.requestAuthorization { [weak self] status in
+                
+                self?.handlePhotoLibraryAuthorizationStatus(status: status, completion: completion)
+                
+            }
+            
+        }
+        
+    }
+    
+    private func handlePhotoLibraryAuthorizationStatus(status: PHAuthorizationStatus,
+                                                       completion: @escaping TypeClosure<PhotoAuthStatus>) {
+        
+        switch status {
+        case .authorized:
+            completion((isAllowed: true, isLimited: false))
+            
+        case .limited:
+            
+            if #available(iOS 14.0, *) {
+                
+                completion((isAllowed: true, isLimited: true))
+                
+            } else {
+                
+                completion((isAllowed: true, isLimited: true))
+            }
+            
+        case .denied, .restricted:
+            //                delegate?.didFailToGetPermission(Localizable.accessErrorPhotos())
+            completion((isAllowed: false, isLimited: false))
+            
+        case .notDetermined:
+            break // won't happen but still
+        @unknown default:
+            break
         }
     }
 }
@@ -108,16 +206,42 @@ extension HomePresenter: HomePresentable {
     }
     
     func onDownload(url: String) {
-        guard let videoURL = URL(string: url) else { return }
+        let status = checkPhotosAccess()
+        switch status {
+        case .denied, .restricted:
+            //
+            view?.showSettingPopup()
+            return
+        case .notDetermined:
+            requestPhotoLibraryAuthorization {[weak self] status in
+                if !status.isAllowed && !status.isLimited {
+                    DispatchQueue.main.async {
+                        self?.view?.showSettingPopup()
+                    } 
+                }
+            }
+            return
+        default:
+            break
+            
+        }
+        guard !url.isEmpty else {
+            view?.showEmptyInputPopup()
+            return
+        }
+        
+        guard url.isValidURL, let videoURL = URL(string: url) else {
+            view?.showInvalidURLPopup()
+            return }
         if url.contains("video") {
             if let videoID = videoURL.path.components(separatedBy: "/").last{
                 let videoUrl = "https://www.tikwm.com//video/media/play/\(videoID).mp4"
                 debugPrint("url \(videoUrl)")
-                startDownLoadVideo(url: videoUrl)
+                self.startDownLoadVideo(url: videoUrl)
             }
             
         } else {
-            view?.showLoadingView()
+            self.view?.showLoadingView()
             LinkExtracktor.shared.loadWeb(from: videoURL)
             LinkExtracktor.shared.extractHandler = {[weak self] href in
                 guard let `self` = self else { return }
@@ -134,6 +258,8 @@ extension HomePresenter: HomePresentable {
                 
             }
         }
-        
+    }
+    
+    func checkPhotoLibraryPermission() {
     }
 }

@@ -11,6 +11,9 @@ protocol HomeViewable: AnyObject {
     func showLoadingView()
     func hideLoadingView()
     func showSuccessView(message: String?)
+    func showSettingPopup()
+    func showEmptyInputPopup()
+    func showInvalidURLPopup()
 }
 
 protocol HomePresentable: AnyObject {

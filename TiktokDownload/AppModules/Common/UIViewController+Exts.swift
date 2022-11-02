@@ -22,9 +22,24 @@ extension UIViewController {
     
     func openURL(_ url: String) {
         if let openURL = URL(string: url), UIApplication.shared.canOpenURL(openURL) {
-            
-            UIApplication.shared.openURL(openURL)
-            
+            UIApplication.shared.open(openURL, options: [:])
+        }
+    }
+    
+    func showPopup(title: String? = nil, message: String? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            alert.dismiss(animated: true)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    func openSettings() {
+        if let url = URL(string:UIApplication.openSettingsURLString) {
+            if UIApplication.shared.canOpenURL(url){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
     }
 }

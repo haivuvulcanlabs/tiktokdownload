@@ -112,6 +112,7 @@ class TrendingTVC: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.left.equalTo(thumbnailImageView.snp.right).offset(11)
             make.centerY.equalToSuperview().offset(-8)
+            make.right.equalTo(holderView.snp.right).offset(-5)
         }
         
         subTitleLabel.snp.makeConstraints { make in

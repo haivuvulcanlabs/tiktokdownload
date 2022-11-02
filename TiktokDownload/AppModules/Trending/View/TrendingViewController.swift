@@ -38,6 +38,7 @@ class TrendingViewController: UIViewController {
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "last updated: 30/09/2022, 4:31:02"
+        label.isHidden = true
         label.font = FontFamily.Montserrat.medium.font(size: 13)
         label.textColor = UIColor.white
         return label

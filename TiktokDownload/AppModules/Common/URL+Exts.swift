@@ -13,3 +13,15 @@ extension URL {
         return url.queryItems?.first(where: { $0.name == queryParameterName })?.value
     }
 }
+
+extension String {
+    var isValidURL: Bool {
+        guard let url = URL(string: self),
+                   url.isFileURL || (url.host != nil && url.scheme != nil) else {
+                   return false
+               }
+        
+        return true
+    }
+    
+}

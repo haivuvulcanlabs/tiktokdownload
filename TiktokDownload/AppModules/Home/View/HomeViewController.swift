@@ -49,7 +49,7 @@ class HomeViewController: UIViewController, KeyboardObservable{
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Paste Tiktok Link"
+        label.text = "Paste TikTok Link"
         label.font = FontFamily.Montserrat.bold.font(size: 26.5)
         label.textColor = UIColor.white
         return label
@@ -200,7 +200,11 @@ private extension HomeViewController {
     }
     
     @objc func tappedDownloadButton(_ sender: UIButton) {
-        guard let inputLink = linkTextField.text, !inputLink.isEmpty else { return }
+        
+        let inputLink = linkTextField.text ?? ""
+//        guard let inputLink = linkTextField.text, !inputLink.isEmpty else {
+//            showPopup(message: "Please paste a link first or click on the TikTok logo in middle of screen")
+//            return }
      
         presenter?.onDownload(url: inputLink)
     }
@@ -223,4 +227,31 @@ extension HomeViewController: HomeViewable {
     func showSuccessView(message: String?) {
         SVProgressHUD.showSuccess(withStatus: message)
     }
+    
+    func showSettingPopup() {
+        let alert = UIAlertController(title: nil, message: "Turn on Add to Photos in order to save the dowloaded video", preferredStyle: .alert)
+        
+        let settingAction = UIAlertAction(title: "Settings", style: .default) {[weak self] _ in
+            self?.openSettings()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            alert.dismiss(animated: true)
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(settingAction)
+        
+        present(alert, animated: true)
+    }
+    
+    func showEmptyInputPopup() {
+        showPopup(message: "Please paste a link first or click on the TikTok logo in middle of screen")
+    }
+    
+    func showInvalidURLPopup() {
+        showPopup(message: "Please input a valid link")
+    }
 }
+
+
