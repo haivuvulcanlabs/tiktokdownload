@@ -8,7 +8,7 @@
 import Foundation
 
 protocol TrendingViewable: AnyObject {
-    
+    func reloadTableView()
 }
 
 protocol TrendingPresentable: AnyObject {

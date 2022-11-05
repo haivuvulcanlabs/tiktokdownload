@@ -6,11 +6,12 @@ target 'TiktokDownload' do
   use_frameworks!
   pod 'SnapKit', '~> 5.6'
   pod 'Alamofire', '~> 5.6'
-  pod 'RxSwift', '~> 6.5'
+#  pod 'RxSwift', '~> 6.5'
   pod 'SVProgressHUD', '~> 2.2'
   pod 'Kingfisher'
   pod 'lottie-ios', '~> 3.5'
   pod 'SwiftSoup'
+  pod 'FirebaseStorage', '~> 10.1'
 
   # Pods for TiktokDownload
 
