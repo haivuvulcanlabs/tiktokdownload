@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>419013944763-kmrgt6b5nkte6lnfq7042uo07679al1q.apps.googleusercontent.com</string>
+	<string>419013944763-5591t60qjhsbqmro6dl9st2uqjsflc9l.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.419013944763-kmrgt6b5nkte6lnfq7042uo07679al1q</string>
+	<string>com.googleusercontent.apps.419013944763-5591t60qjhsbqmro6dl9st2uqjsflc9l</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBrt4YxAYajJZlQai6xOQGXTe1509Ce3Vo</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>co.vulcanlabs.co.TiktokDownload</string>
+	<string>com.expand.com</string>
 	<key>PROJECT_ID</key>
 	<string>upwork-tiktok</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:419013944763:ios:6070e6ea3700d38afe109e</string>
+	<string>1:419013944763:ios:b19962e764ec2942fe109e</string>
 </dict>
 </plist>
