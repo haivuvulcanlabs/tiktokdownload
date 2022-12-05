@@ -9,11 +9,11 @@ import Foundation
 
 enum Configs {
     enum App {
-        static let appId = "1235601864"
-        static let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "TikTok Ltd."
+        static let appId = "6444873876"
+        static let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "ReTok"
         static let reviewAppURL = "itms-apps://itunes.apple.com/app/id\(Configs.App.appId)?action=write-review"
         static let appURL = "itms-apps://itunes.apple.com/US/app/id\(Configs.App.appId)"
-        static let otherAppURL = "https://apps.apple.com/vn/developer/tiktok-ltd/id1322881000?l=vi"
+        static let otherAppURL = "https://apps.apple.com/us/developer/kenny-batista/id993442282"
     }
 
     enum URLs {

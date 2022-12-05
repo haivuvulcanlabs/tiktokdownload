@@ -721,7 +721,7 @@
 				DEVELOPMENT_TEAM = F59XSVKP6X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TiktokDownload/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Tiktok saver";
+				INFOPLIST_KEY_CFBundleDisplayName = ReTok;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save video to your gallery";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Save video to your gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -757,7 +757,7 @@
 				DEVELOPMENT_TEAM = F59XSVKP6X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TiktokDownload/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Tiktok saver";
+				INFOPLIST_KEY_CFBundleDisplayName = ReTok;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save video to your gallery";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Save video to your gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
