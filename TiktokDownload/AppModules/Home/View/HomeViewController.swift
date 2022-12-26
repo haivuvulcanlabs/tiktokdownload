@@ -31,27 +31,27 @@ class HomeViewController: UIViewController, KeyboardObservable{
         return headerView
     }()
     
-    private lazy var tiktokButton: UIButton = {
+    private lazy var startButton: UIButton = {
         let button = UIButton()
-        button.setImage(Asset.Assets.icTiktokLogo.image, for: .normal)
+        button.setImage(Asset.Assets.icStartDownload.image, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.addTarget(self, action: #selector(tappedOpenTiktokdButton(_:)), for: .touchUpInside)
         return button
     }()
     
-    private lazy var tiktokLabel: UILabel = {
+    private lazy var startLabel: UILabel = {
         let label = UILabel()
-        label.text = "Tap to go to TikTok"
+        label.text = "Tap here to start"
         label.font = FontFamily.Montserrat.medium.font(size: 11)
-        label.textColor = UIColor.white
+        label.textColor = Asset.Colors.hex333347.color.withAlphaComponent(0.7)
         return label
     }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Paste TikTok Link"
+        label.text = "Paste Video’s Link"
         label.font = FontFamily.Montserrat.bold.font(size: 26.5)
-        label.textColor = UIColor.white
+        label.textColor = Asset.Colors.hex333347.color
         return label
     }()
     
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController, KeyboardObservable{
         let label = UILabel()
         label.text = "we will download without watermark."
         label.font = FontFamily.Montserrat.medium.font(size: 13)
-        label.textColor = UIColor.white
+        label.textColor = Asset.Colors.hex333347.color
         return label
     }()
     
@@ -72,15 +72,15 @@ class HomeViewController: UIViewController, KeyboardObservable{
     
     private lazy var linkTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Paste TikTok link here"
+        textField.placeholder = "Paste link here"
         
-        let atts: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: Asset.Colors.hexECECEC.color, NSAttributedString.Key.font: UIFont(name: "Arial-Regular", size: 13) ?? UIFont.systemFont(ofSize: 13)]
+        let atts: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: Asset.Colors.hex333347.color.withAlphaComponent(0.7), NSAttributedString.Key.font: UIFont(name: "Arial-Regular", size: 13) ?? UIFont.systemFont(ofSize: 13)]
         
-        let attString = NSMutableAttributedString(string: "Paste TikTok link here", attributes: atts)
+        let attString = NSMutableAttributedString(string: "Paste link here", attributes: atts)
         textField.attributedPlaceholder = attString
         
         let leftView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 40)))
-        let leftImageView = UIImageView(frame: CGRect(x: 2, y: 1, width: 38, height: 38))
+        let leftImageView = UIImageView(frame: CGRect(x: 4, y: 1, width: 38, height: 38))
         leftImageView.image = Asset.Assets.icPastelink.image
         leftImageView.contentMode = .scaleAspectFit
         leftView.addSubview(leftImageView)
@@ -88,8 +88,7 @@ class HomeViewController: UIViewController, KeyboardObservable{
         textField.leftView = leftView
         textField.leftViewMode = .always
         
-        textField.textColor = .white
-//        textField.text = "https://vt.tiktok.com/ZSRnuBWGj/"
+        textField.textColor = Asset.Colors.hex333347.color
         return textField
     }()
     
@@ -158,15 +157,15 @@ private extension HomeViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
         }
         
-        view.addSubview(tiktokButton)
-        view.addSubview(tiktokLabel)
-        tiktokButton.snp.makeConstraints { make in
+        view.addSubview(startButton)
+        view.addSubview(startLabel)
+        startButton.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.height.equalTo(UIScreen.main.bounds.width * 113.0 / 414.0)
         }
-        tiktokLabel.snp.makeConstraints { make in
+        startLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(tiktokButton.snp.bottom).offset(5)
+            make.top.equalTo(startButton.snp.bottom).offset(5)
         }
         
         //
@@ -189,7 +188,7 @@ private extension HomeViewController {
             make.bottom.equalTo(downloadButton.snp.top).offset(-10)
         }
         
-        linkTextField.rounded(width: 1, color: Asset.Colors.hexA6D5C7.color, radius: buttonHeight/2)
+        linkTextField.rounded(width: 1, color: UIColor.white.withAlphaComponent(0.25), radius: buttonHeight/2)
         
     }
 }
@@ -246,7 +245,7 @@ extension HomeViewController: HomeViewable {
     }
     
     func showEmptyInputPopup() {
-        showPopup(message: "Please paste a link first or click on the TikTok logo in middle of screen")
+        showPopup(message: "Please paste a link first or click on the Download logo in middle of screen")
     }
     
     func showInvalidURLPopup() {

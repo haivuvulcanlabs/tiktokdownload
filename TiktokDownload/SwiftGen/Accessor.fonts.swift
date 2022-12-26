@@ -23,18 +23,11 @@ public enum FontFamily {
     public static let all: [FontConvertible] = [regular]
   }
   public enum Montserrat {
-    public static let black = FontConvertible(name: "Montserrat-Black", family: "Montserrat", path: "Montserrat-Black.ttf")
-    public static let blackItalic = FontConvertible(name: "Montserrat-BlackItalic", family: "Montserrat", path: "Montserrat-BlackItalic.ttf")
     public static let bold = FontConvertible(name: "Montserrat-Bold", family: "Montserrat", path: "Montserrat-Bold.ttf")
-    public static let boldItalic = FontConvertible(name: "Montserrat-BoldItalic", family: "Montserrat", path: "Montserrat-BoldItalic.ttf")
-    public static let extraBold = FontConvertible(name: "Montserrat-ExtraBold", family: "Montserrat", path: "Montserrat-ExtraBold.ttf")
-    public static let extraBoldItalic = FontConvertible(name: "Montserrat-ExtraBoldItalic", family: "Montserrat", path: "Montserrat-ExtraBoldItalic.ttf")
     public static let medium = FontConvertible(name: "Montserrat-Medium", family: "Montserrat", path: "Montserrat-Medium.ttf")
-    public static let mediumItalic = FontConvertible(name: "Montserrat-MediumItalic", family: "Montserrat", path: "Montserrat-MediumItalic.ttf")
     public static let regular = FontConvertible(name: "Montserrat-Regular", family: "Montserrat", path: "Montserrat-Regular.ttf")
     public static let semiBold = FontConvertible(name: "Montserrat-SemiBold", family: "Montserrat", path: "Montserrat-SemiBold.ttf")
-    public static let semiBoldItalic = FontConvertible(name: "Montserrat-SemiBoldItalic", family: "Montserrat", path: "Montserrat-SemiBoldItalic.ttf")
-    public static let all: [FontConvertible] = [black, blackItalic, bold, boldItalic, extraBold, extraBoldItalic, medium, mediumItalic, regular, semiBold, semiBoldItalic]
+    public static let all: [FontConvertible] = [bold, medium, regular, semiBold]
   }
   public static let allCustomFonts: [FontConvertible] = [Arial.all, Montserrat.all].flatMap { $0 }
   public static func registerAllCustomFonts() {

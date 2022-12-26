@@ -37,11 +37,16 @@ internal enum Asset {
     internal static let icBack = ImageAsset(name: "ic-back")
     internal static let icPastelink = ImageAsset(name: "ic-pastelink")
     internal static let icSetting = ImageAsset(name: "ic-setting")
-    internal static let icTiktokLogo = ImageAsset(name: "ic-tiktok-logo")
+    internal static let icStartDownload = ImageAsset(name: "ic-start-download")
     internal static let icTrendingDemo = ImageAsset(name: "ic-trending-demo")
     internal static let icTrending = ImageAsset(name: "ic-trending")
   }
   internal enum Colors {
+    internal static let hex2B2A43 = ColorAsset(name: "hex2B2A43")
+    internal static let hex333347 = ColorAsset(name: "hex333347")
+    internal static let hex3D57AB = ColorAsset(name: "hex3D57AB")
+    internal static let hex464860 = ColorAsset(name: "hex464860")
+    internal static let hex68707B = ColorAsset(name: "hex68707B")
     internal static let hex81C1BF = ColorAsset(name: "hex81C1BF")
     internal static let hexA2D4C6 = ColorAsset(name: "hexA2D4C6")
     internal static let hexA6D5C7 = ColorAsset(name: "hexA6D5C7")

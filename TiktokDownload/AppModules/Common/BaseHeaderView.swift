@@ -33,7 +33,7 @@ class BaseHeaderView: UIView {
         let label = UILabel()
         label.font = FontFamily.Montserrat.semiBold.font(size: 14)
         label.text = titleText
-        label.textColor = .white
+        label.textColor = Asset.Colors.hex333347.color
         return label
     }()
     

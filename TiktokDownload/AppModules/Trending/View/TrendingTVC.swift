@@ -17,7 +17,7 @@ class TrendingTVC: UITableViewCell {
         let label = UILabel()
         label.font = FontFamily.Montserrat.semiBold.font(size: 22.5)
         label.text = "1"
-        label.textColor = Asset.Colors.hex81C1BF.color
+        label.textColor = Asset.Colors.hex3D57AB.color
         return label
     }()
     
@@ -50,7 +50,7 @@ class TrendingTVC: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Monkeys Spinning Monkeys"
-        label.textColor = Asset.Colors.hexECECEC.color
+        label.textColor = Asset.Colors.hex2B2A43.color.withAlphaComponent(0.83)
         label.font = FontFamily.Arial.regular.font(size: 13)
         return label
     }()
@@ -58,7 +58,7 @@ class TrendingTVC: UITableViewCell {
     private lazy var subTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "—  ·  922.5M views  ·  1.4K popular videos"
-        label.textColor = Asset.Colors.hexECECEC.color
+        label.textColor = Asset.Colors.hex68707B.color.withAlphaComponent(0.85)
         label.font = FontFamily.Arial.regular.font(size: 9)
         return label
     }()

@@ -1,0 +1,20 @@
+xcassets:
+  inputs:
+    - TiktokDownload/Resources/Assets.xcassets
+    - TiktokDownload/Resources/Colors.xcassets
+  outputs:
+    - templateName: swift5
+      output: TiktokDownload/SwiftGen/Accessor.assets.swift
+plist:
+  inputs:
+    - TiktokDownload/Info.plist
+  outputs:
+    templateName: runtime-swift5
+    output: TiktokDownload/SwiftGen/Accessor.plists.swift
+fonts:
+  inputs: TiktokDownload/Resources/Fonts
+  outputs:
+    - templateName: swift5
+      output: TiktokDownload/SwiftGen/Accessor.fonts.swift
+      params:
+        publicAccess: true

@@ -18,11 +18,19 @@ class SettingViewController: UIViewController {
     }()
     
     private lazy var headerView: BaseHeaderView = {
-        let headerView = BaseHeaderView(leftImage: Asset.Assets.icBack.image ,titleText: "Settings")
+        let headerView = BaseHeaderView(leftImage: Asset.Assets.icBack.image ,titleText: "")
         headerView.tappedLeftHandler = {[weak self] in
             self?.presenter?.onTappedBack()
         }
         return headerView
+    }()
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = FontFamily.Montserrat.bold.font(size: 22)
+        label.text = "Settings"
+        label.textColor = Asset.Colors.hex464860.color
+        return label
     }()
     
     private lazy var tableView: UITableView = {
@@ -74,12 +82,18 @@ private extension SettingViewController {
             make.top.equalTo(guide.snp.top)
             make.height.equalTo(40)
         }
-        
+        view.addSubview(titleLabel)
         view.addSubview(tableView)
+        
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(headerView.snp.bottom).offset(10)
+
+        }
         tableView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.bottom.equalTo(guide.snp.bottom)
-            make.top.equalTo(headerView.snp.bottom).offset(0)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
     }
 }
@@ -134,8 +148,8 @@ extension SettingViewController: UITableViewDataSource {
         headerView.backgroundColor = .clear
         let titleLabel = UILabel()
         titleLabel.text = sectionData.title
-        titleLabel.font = FontFamily.Montserrat.semiBold.font(size: 15)
-        titleLabel.textColor = Asset.Colors.settingSectionText.color
+        titleLabel.font = FontFamily.Montserrat.bold.font(size: 15)
+        titleLabel.textColor = Asset.Colors.hex464860.color
         headerView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(30)

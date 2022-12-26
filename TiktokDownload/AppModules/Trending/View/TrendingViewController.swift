@@ -29,9 +29,9 @@ class TrendingViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Top Tiktok Songs This Week"
+        label.text = "Top Songs This Week"
         label.font = FontFamily.Montserrat.bold.font(size: 22.5)
-        label.textColor = UIColor.white
+        label.textColor = Asset.Colors.hex333347.color
         return label
     }()
     

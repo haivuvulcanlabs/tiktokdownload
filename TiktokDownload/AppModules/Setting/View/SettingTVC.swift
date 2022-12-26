@@ -21,14 +21,14 @@ class SettingTVC: UITableViewCell {
     private lazy var arrowImageView: UIImageView = {
         let imageView = UIImageView(image: Asset.Assets.icSettingArrow.image)
         imageView.contentMode = .scaleAspectFit
-        
+        imageView.isHidden = true
         return imageView
     }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = FontFamily.Montserrat.semiBold.font(size: 15)
-        label.textColor = .white
+        label.font = FontFamily.Montserrat.medium.font(size: 15)
+        label.textColor = Asset.Colors.hex464860.color
         return label
     }()
     
